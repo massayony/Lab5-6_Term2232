@@ -1,0 +1,141 @@
+---
+title: "Lab 5 - La Quinta is Spanish for next to Denny's, Pt. 1"
+subtitle: "Visualizing spatial data"
+author: Musab Isah
+output: pdf_document
+---
+
+Student Name and ID: 
+
+
+```{r include = FALSE}
+knitr::opts_chunk$set(eval = TRUE)
+```
+
+Load the needed packages. Note: dsbox is not yet on CRAN. For now, you need to install it before you load the library. Uncomment, by deleting # from, the two lines of code below.
+
+```{r message = FALSE}
+#install.packages("devtools")
+#devtools::install_github("rstudio-education/dsbox")
+```
+
+Load the libraries here.
+
+```{r message = FALSE}
+library(tidyverse)
+library(dsbox)
+```
+
+To help with our analysis we will also use a dataset on US states, which is located in your repository's `data` folder.
+
+```{r message = FALSE}
+states <- read_csv("data/states.csv")
+```
+
+# Exercises
+
+1.  What are the dimensions of the Denny's dataset?
+    (Hint: Use inline R code and functions like `nrow` and `ncol` to compose your answer.) What does each row in the dataset represent?
+    What are the variables?
+    
+```{r}
+
+```
+
+2.  What are the dimensions of the La Quinta's dataset? 
+    What does each row in the dataset represent?
+    What are the variables?
+    
+    
+```{r}
+
+```
+
+
+Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+
+
+3.  Add a country variable to the Denny's and Laquinta's datasets and set all observations equal to `"United States"`. Remember, you can use the `mutate` function for adding a variable. Make sure to save the result of this as `dn` and lq, respectively, so that the stored data frame contains the new variable going forward.
+
+For Denny's
+
+```{r}
+
+```
+
+
+For La Quinta
+```{r}
+
+```
+
+Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+
+
+4.  Which states have the most and fewest Denny's locations? What about La Quinta? Is this surprising? Why or why not?
+
+For Denny's - Most
+
+```{r}
+
+```
+
+For Denny's - Fewest
+
+```{r}
+
+```
+
+For La Quinta - Most
+
+```{r}
+
+```
+
+
+For La Quinta - Fewest
+
+```{r}
+
+```
+
+5. Which states have the most Denny's locations per thousand square miles? What about La Quinta?
+
+Joining Denny's and states
+
+```{r}
+
+```
+
+Joining La Quinta's and states
+
+```{r}
+
+```
+
+We need to add an identifier variable which we'll call `establishment` and set the value to `"Denny's"` and `"La Quinta"` for the `dn` and `lq` data frames, respectively.
+
+```{r}
+
+```
+
+
+``` {r}
+
+```
+
+Since the two data frames (`dn` and `lq`) have the same columns, we can easily bind them with the `bind_rows` function:
+
+```{r}
+
+```
+
+We can plot the locations of the two establishments using a scatter plot, and color the points by the establishment type.
+Note that the latitude is plotted on the x-axis and the longitude on the y-axis.
+
+```{r}
+
+```
+
+
+Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards and review the md document on GitHub to make sure you're happy with the final state of your work.*
